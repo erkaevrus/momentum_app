@@ -1,9 +1,10 @@
 import { showGreeting } from "./greeting.js"
 
+
 const time = document.querySelector('.time')
 const dateElem = document.querySelector('.date')
 
- 
+
 function showTime() {
     const date = new Date()
     const currentTime = date.toLocaleTimeString()

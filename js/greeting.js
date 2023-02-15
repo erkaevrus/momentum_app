@@ -1,5 +1,3 @@
-
-
 const greeting = document.querySelector('.greeting')
 const name = document.querySelector('.name')
 
