@@ -1,3 +1,6 @@
+import  i18next from "./translate.js"
+
+
 const greeting = document.querySelector('.greeting')
 const name = document.querySelector('.name')
 
@@ -12,7 +15,9 @@ export function getTimeOfDay() {
 
 export function showGreeting() {
     const timeOfDay = getTimeOfDay()
-    const greetingText = `Good ${timeOfDay}`
+    const arrTimeOfDay = ['night', 'morning', 'afternoon', 'evening']
+    const greetingTranslate =  ['GREETING_NIGHT', 'GREETING_MORNING', 'GREETING_AFTERNOON', 'GREETING_EVENING']
+    const greetingText = i18next.t(greetingTranslate[arrTimeOfDay.indexOf(timeOfDay)])
     return greeting.textContent = greetingText
 }
 
@@ -20,7 +25,6 @@ export function showGreeting() {
 function setLocalStorage() {
     localStorage.setItem('name', name.value)
 }
-
 window.addEventListener('beforeunload', setLocalStorage)
 
 
@@ -29,5 +33,4 @@ function getLocalStorage() {
         name.value = localStorage.getItem('name')
     }
 }
-
 window.addEventListener('load', getLocalStorage)

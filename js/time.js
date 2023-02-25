@@ -1,5 +1,5 @@
 import { showGreeting } from "./greeting.js"
-
+import  i18next from "./translate.js"
 
 const time = document.querySelector('.time')
 const dateElem = document.querySelector('.date')
@@ -18,9 +18,11 @@ function showTime() {
 function showDate() {
     const date = new Date()
     const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    const currentDate = date.toLocaleDateString('en-US', options);
+    const currentDate = date.toLocaleDateString(`${i18next.language === 'en' ? 'en' : 'ru'}`, options);
     dateElem.textContent = currentDate
 }
 
-
 showTime()
+
+
+export default showTime

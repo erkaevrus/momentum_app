@@ -7,7 +7,7 @@ const slidePrev = document.querySelector('.slide-prev')
 let randomNum = getRandomNum(1, 20)
 
 
-export function getRandomNum(min, max) {
+function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -46,3 +46,6 @@ function getSlidePrev() {
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
 setBg()
+
+
+export default getRandomNum
