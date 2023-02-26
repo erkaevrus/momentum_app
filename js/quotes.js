@@ -1,4 +1,4 @@
-import getRandomNum from "./slider.js"
+import { getRandomNum } from "./slider.js"
 import  i18next from "./translate.js"
 
 
@@ -8,7 +8,7 @@ const changeQuote = document.querySelector('.change-quote')
 let numberOfquote = getRandomNum(0, 6)
 
 
-async function getQuotes() {
+export async function getQuotes() {
     const quotes = i18next.language === 'en' ? '../assets/quotes/dataEn.json' : '../assets/quotes/dataRu.json'
     const res = await fetch(quotes)
     const data = await res.json()
@@ -28,4 +28,3 @@ changeQuote.addEventListener('click', getNewQuote)
 getQuotes()
 
 
-export default getQuotes
